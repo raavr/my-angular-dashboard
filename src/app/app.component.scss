@@ -6,3 +6,17 @@ html, body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
   height: 100%;
 }
+
+.app-container {
+  display: block;
+
+  @media(min-width: 768px) {
+    & {
+       display: flex; 
+    }
+  }
+}
+
+main {
+  width: 100%;
+}

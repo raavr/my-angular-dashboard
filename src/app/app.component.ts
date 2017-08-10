@@ -11,8 +11,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
     './app.component.scss'
   ],
   template: `
-    <div>
-      <router-outlet></router-outlet>
+    <div class="app-container">
+      <navbar></navbar>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
     </div>
   `
 })

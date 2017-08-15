@@ -1,0 +1,22 @@
+<div class="res-table-container">
+    <div class="res-table">
+        <div class="header-column">
+            <res-type-header [resType]="'People'"></res-type-header>
+            <res-info [resType]="'People'" [resCount]="viewResource.length"></res-info>
+            <div class="items-header-container">
+                <res-item-header *ngFor="let res of viewResource; let idx = index" [resItem]="res" [position]="idx"></res-item-header>
+            </div>
+        </div>
+        <div class="data-column">
+            <res-month-header [dateRange]="dateRange"></res-month-header>
+            <div class="clipping-frame" moveDays [daysCount]="days.length">
+                <div class="moving-frame">
+                    <res-days [days]="days"></res-days>
+                    <div class="items-container">
+                        <res-item *ngFor="let res of viewResource; let idx = index;" [resItem]="res" [position]="idx"></res-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

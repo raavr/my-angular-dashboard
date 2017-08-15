@@ -1,0 +1,8 @@
+<header class="header-row">
+    <div class="month-name">{{dateRange.startDate | date:'dd MMMM'}} - {{dateRange.endDate | date:'dd MMMM'}}</div>
+    <div class="move-days">
+        <i class="fa fa-angle-left" (click)="moveDaysLeft()"></i>
+        <span></span>
+        <i class="fa fa-angle-right" (click)="moveDaysRight()"></i>
+    </div>
+</header>

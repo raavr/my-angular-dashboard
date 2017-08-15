@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { NoContentComponent } from './no-content';
 import { NavbarModule } from './navbar';
+import { ResourcesModule } from './resources';
 
 const APP_SERVICE_PROVIDERS = [
 
@@ -31,7 +32,8 @@ const APP_PROVIDERS = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-    NavbarModule
+    NavbarModule,
+    ResourcesModule
   ],
   providers: [
     ENV_PROVIDERS,

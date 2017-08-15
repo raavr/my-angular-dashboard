@@ -2,9 +2,13 @@ $fa-font-path: "/assets/font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 @import "~normalize.css/normalize.css";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
-  height: 100%;
+  min-height: 100%;
 }
 
 .app-container {
@@ -19,4 +23,43 @@ html, body {
 
 main {
   width: 100%;
+  background-color: #f8f9fd;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  min-height: 100vh;
+
+   @media (min-width: 768px) {
+    & {
+      width: calc(100% - 250px);
+    }
+  }
+}
+
+.section-title {
+  padding: 30px 20px;
+  border-top: 1px solid #f3f4f8;
+  border-bottom: 1px solid #f3f4f8;
+
+  @media (min-width: 576px) {
+    & {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+}
+
+.collapsed {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 1px;
+    transition: visibility 275ms, opacity 275ms, max-height .28s;
+    transition-timing-function: ease-out;
+}
+
+.expanded {
+    visibility: visible;
+    opacity: 1;
+    max-height: 4000px;
+    transition: visibility .5s, opacity .5s, max-height .5s;
+    transition-timing-function: ease-in-out;
 }

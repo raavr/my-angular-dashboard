@@ -1,0 +1,53 @@
+.data-item {
+    min-height: 50px;
+    line-height: 48px;
+    padding: 0 15px;
+    background: none;
+    width: 100%;
+    border: 0;
+    text-align: left;
+
+    &:hover {
+        background-color:#f8f9fd;
+    }
+
+    i {
+        float: right;
+        height: 100%;
+        vertical-align: middle;
+        line-height: 50px;
+        font-size: 1rem;
+    }
+}
+
+.inside-data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inside-data-item {
+    line-height: 40px;
+    font-size: 0.8rem;
+    padding-left: 30px; 
+
+    &:hover {
+        background-color:#f8f9fd;
+    }
+
+}
+
+.assign-btn {
+    border: 1px solid #999999;
+    background: 0;
+    margin: 5px 0 5px 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #999999;
+    height: 25px;
+    max-height: 25px;
+
+    i {
+        margin-right: 5px;
+    }
+}

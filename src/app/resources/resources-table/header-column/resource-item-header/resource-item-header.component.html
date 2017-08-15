@@ -1,0 +1,12 @@
+<button class="data-item" (click)="expandCollapseItem()">
+    <input type="checkbox" id="resourceItem">
+    <label for="resourceItem">{{resItem.member}}</label>
+    <i *ngIf="!expanded" class="fa fa-angle-right" aria-hidden="true"></i>
+    <i *ngIf="expanded" class="fa fa-angle-down" aria-hidden="true"></i>
+</button>
+<div [ngClass]="{ expanded: expanded, collapsed: !expanded }">
+    <ul class="inside-data-list">
+        <li class="inside-data-item" *ngFor="let proj of resItem.viewProjects">{{proj.name}}</li>
+    </ul>
+    <button class="assign-btn"><i class="fa fa-plus"></i><span>Assign Project</span></button>
+</div>

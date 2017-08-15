@@ -4,6 +4,7 @@ import { TransformResourcesService } from './transform-resources.service';
 import { Resource } from '../resource/resource';
 import { ViewResource } from '../resource/view-resource';
 import { DateRange } from '../resource/date-range';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'res-table',
@@ -17,6 +18,7 @@ export class ResourcesTableComponent {
     viewResource: ViewResource[];
     days: Date[];
     dateRange: DateRange;
+    viewResourceSubscription: Subscription;
 
     constructor(private moveDaysService: MoveDaysFrameService, private transformResourcesService: TransformResourcesService) { }
 
@@ -24,9 +26,13 @@ export class ResourcesTableComponent {
         this.dateRange = new DateRange(new Date("05-12-2017"), new Date("06-06-2017"));
         this.days = this.transformResourcesService.getDaysList(this.dateRange);
         
-        this.transformResourcesService
+        this.viewResourceSubscription = this.transformResourcesService
             .transformResourcesData(this.resources, this.dateRange)
             .subscribe((elem) => this.viewResource = elem); 
+    }
+
+    ngOnDestroy() {
+        this.viewResourceSubscription.unsubscribe();
     }
 
 }

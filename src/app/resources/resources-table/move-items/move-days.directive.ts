@@ -1,6 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { MoveDaysFrameService } from './move-days.service';
 import { MOVE_DIR, DAY_ELEM_SIZE } from './move-days';
+import { Subscription } from 'rxjs/Subscription';
 
 @Directive({
   selector: '[moveDays]'
@@ -9,12 +10,13 @@ export class MoveDaysDirective {
   
   @Input() daysCount: number;
   currentPosition: number = 0;
+  moveDaysSubcription: Subscription;
 
   constructor(private el: ElementRef, private moveDaysService: MoveDaysFrameService) {  }
 
   ngOnInit() {
     this.setMovingFrameWidth();
-    this.moveDaysService.moveDays$.subscribe(
+    this.moveDaysSubcription = this.moveDaysService.moveDays$.subscribe(
         (moveValue) => this.move(moveValue)
     );
   }  
@@ -46,6 +48,10 @@ export class MoveDaysDirective {
     
     const moveValue = -DAY_ELEM_SIZE * this.currentPosition + this.currentPosition;
     this.el.nativeElement.children[0].style.transform = "translateX(" + moveValue + "px)"; 
+  }
+
+  ngOnDestroy() {
+    this.moveDaysSubcription.unsubscribe();
   }
 
 }

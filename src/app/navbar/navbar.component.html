@@ -16,9 +16,9 @@
                 </a>
             </li>
             <li>
-                <a href="" title="Nav Link" class="navbar-link">
+                <a [routerLink]="['./resources']" title="Nav Link" class="navbar-link">
                     <i class="fa fa-"></i>
-                    <span>Resourcing</span>
+                    <span>Resources</span>
                 </a>
             </li>
             <li>
@@ -65,7 +65,7 @@
             </li>
         </ul>
     </nav>
-    <button type="button" class="hamburger-menu" (click)="toggleNavbar()">
-        <span [ngClass]="{ active: isActive }"></span>
-    </button>
 </div>
+<button type="button" class="hamburger-menu" [ngClass]="{ active: isActive }" (click)="toggleNavbar()">
+    <span></span>
+</button>

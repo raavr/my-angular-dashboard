@@ -10,16 +10,26 @@ $fa-font-path: "/assets/font-awesome/fonts";
 html, body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
   min-height: 100%;
+  background-color: #f8f9fd;
+}
+
+app {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .app-container {
   display: block;
+  position: relative;
+  transform: translate3d(0,0,0);
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 
-  @media(min-width: 768px) {
-    & {
-       display: flex; 
-    }
-  }
 }
 
 main {
@@ -27,10 +37,13 @@ main {
   background-color: #f8f9fd;
   padding-top: 30px;
   padding-bottom: 30px;
-  min-height: 100vh;
+  overflow-y: auto;
+  height: 100%;
+  
 
    @media (min-width: 768px) {
     & {
+      margin-left: 250px;
       width: calc(100% - 250px);
     }
   }

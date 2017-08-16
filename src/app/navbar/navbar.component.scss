@@ -14,7 +14,7 @@
 
     @media(min-width: 768px) {
         & {
-            position: static;
+            position: absolute;
             margin-left: 0;
             transform: translate(0px);
             overflow-y: auto;

@@ -18,7 +18,7 @@
             <input mdInput #hoursInput type="number" placeholder="Hours" [max]="maxHours" [min]="0" [(ngModel)]="currentWorkingHours" (keyup)="changeValue(hoursInput.value)">
         </md-input-container>
         <div class="assign-button-container">
-            <button md-button (click)="assign()">OK</button>
+            <button md-raised-button (click)="assign()">OK</button>
         </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div class="items-row">
+<div class="items-row" (click)="expandCollapseItem()">
     <div *ngFor="let viewDay of resItem.viewDays" class="item-span item-span-{{viewDay.workingHours}}">
         <span>{{viewDay.workingHours === 0 ? '+' : viewDay.workingHours + 'h'}}</span>
     </div>

@@ -39,6 +39,10 @@ export class ResourceItemComponent {
         this.resItem.viewDays[dayIdx].workingHours = this.resItem.viewDays[dayIdx].workingHours - currentWorkingHours + newValue;
     }
 
+    expandCollapseItem() {
+        this.expandCollapseItemService.expandItem({position: this.position, expand: !this.expanded});
+    }
+
     ngOnDestroy() {
         this.expandItemSubscription.unsubscribe();
     }

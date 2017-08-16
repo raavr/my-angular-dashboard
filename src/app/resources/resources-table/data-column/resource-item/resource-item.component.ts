@@ -3,6 +3,8 @@ import { ViewResource } from '../../../resource/view-resource';
 import { ExpandCollapseItemsService } from '../../move-items/expand-collapse-items.service';
 import { Subscription } from 'rxjs/Subscription';
 
+const MAX_HOURS = 8;
+
 @Component({
     selector: 'res-item',
     templateUrl: './resource-item.component.html',
@@ -27,10 +29,14 @@ export class ResourceItemComponent {
         })
     }
 
-    workingHoursItemOnClick(b, c) {
-        let currentTime = this.resItem.viewProjects[b].viewDays[c].workingHours;
-        this.resItem.viewProjects[b].viewDays[c].workingHours = 8; 
-        this.resItem.viewDays[c].workingHours = this.resItem.viewDays[c].workingHours - currentTime + 8;
+    countMaxHoursPerSubitem(projIdx: number, dayIdx: number) {
+        return MAX_HOURS - this.resItem.viewDays[dayIdx].workingHours + this.resItem.viewProjects[projIdx].viewDays[dayIdx].workingHours;
+    }
+
+    updateDaysHours(newValue: number, projIdx: number, dayIdx: number) {
+        let currentWorkingHours = this.resItem.viewProjects[projIdx].viewDays[dayIdx].workingHours;
+        this.resItem.viewProjects[projIdx].viewDays[dayIdx].workingHours = newValue; 
+        this.resItem.viewDays[dayIdx].workingHours = this.resItem.viewDays[dayIdx].workingHours - currentWorkingHours + newValue;
     }
 
     ngOnDestroy() {

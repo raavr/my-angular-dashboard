@@ -13,6 +13,7 @@ import { ResourceItemHeaderComponent } from './resources-table/header-column/res
 import { ResourceMonthHeaderComponent } from './resources-table/data-column/resource-month-header/resource-month-header.component';
 import { ResourceDaysComponent } from './resources-table/data-column/resource-days/resource-days.component';
 import { ResourceItemComponent } from './resources-table/data-column/resource-item/resource-item.component';
+import { ResourceSubitemComponent } from './resources-table/data-column/resource-item/resource-subitem/resource-subitem.component';
 import { MoveDaysDirective } from './resources-table/move-items/move-days.directive';
 import { MoveDaysFrameService } from './resources-table/move-items/move-days.service';
 import { TransformResourcesService } from './resources-table/transform-resources.service';
@@ -40,7 +41,8 @@ import { ExpandCollapseItemsService } from './resources-table/move-items/expand-
         ResourceItemHeaderComponent,
         ResourceMonthHeaderComponent,
         ResourceDaysComponent,
-        ResourceItemComponent
+        ResourceItemComponent,
+        ResourceSubitemComponent
     ],
     providers: [ 
         MoveDaysFrameService,

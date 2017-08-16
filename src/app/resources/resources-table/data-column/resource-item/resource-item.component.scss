@@ -35,27 +35,5 @@
 }
 
 .inside-items-row.expanded:last-child {
-    margin-bottom: 45px;
-}
-
-.inside-item-span {
-    height: 40px;
-    min-height: 40px;
-
-    span {
-        height: 30px;
-        top: 5px;
-        line-height: 30px;
-        font-size: 0.6rem;
-        color: #ffffff;
-    }
-
-}
-
-@for $i from 0 through 8 {
-    .inside-item-span-#{$i} {
-        span {
-            background-color: rgba(106, 149, 229, 0.3 + $i * 0.1)
-        }
-    }
+    margin-bottom: 35px;
 }

@@ -1,0 +1,25 @@
+<div cdk-overlay-origin #trigger="cdkOverlayOrigin" (click)="openOverlay()" class="item-span inside-item-span inside-item-span-{{workingHours}}">
+    <span>{{workingHours === 0 ? '+' : workingHours + 'h'}}</span>
+</div>
+ <ng-template cdk-connected-overlay 
+             [origin]="trigger" 
+             hasBackdrop 
+             [backdropClass]="'cdk-overlay-transparent-backdrop'" 
+             [open]="isMenuOpen"
+            (backdropClick)="isMenuOpen=false">
+  <div class="assign-container">
+    <header class="assign-header">
+        <span>Assign</span>
+        <i class="fa fa-close" (click)="isMenuOpen=false"></i>
+    </header>
+    <div class="assign-action">
+         <md-slider [max]="maxHours" [min]="0" [step]="1" [(ngModel)]="currentWorkingHours"></md-slider>
+         <md-input-container class="example-margin">
+            <input mdInput #hoursInput type="number" placeholder="Hours" [max]="maxHours" [min]="0" [(ngModel)]="currentWorkingHours" (keyup)="changeValue(hoursInput.value)">
+        </md-input-container>
+        <div class="assign-button-container">
+            <button md-button (click)="assign()">OK</button>
+        </div>
+    </div>
+  </div>
+</ng-template>

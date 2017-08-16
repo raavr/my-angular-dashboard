@@ -1,6 +1,5 @@
 <button class="data-item" (click)="expandCollapseItem()">
-    <input type="checkbox" id="resourceItem">
-    <label for="resourceItem">{{resItem.member}}</label>
+    <md-checkbox>{{resItem.member}}</md-checkbox>
     <i *ngIf="!expanded" class="fa fa-angle-right" aria-hidden="true"></i>
     <i *ngIf="expanded" class="fa fa-angle-down" aria-hidden="true"></i>
 </button>

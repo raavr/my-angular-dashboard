@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MdCheckboxModule, MdSliderModule, MdCoreModule, MdButtonModule, MdInputModule } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { ResourcesRoutingModule } from './resources-routing.module';
 import { ResourcesComponent } from './';
 import { ResourcesTableComponent } from './resources-table/resources-table.component';
@@ -16,8 +20,16 @@ import { ExpandCollapseItemsService } from './resources-table/move-items/expand-
 
 @NgModule({
     imports: [ 
-        CommonModule, 
-        ResourcesRoutingModule 
+        CommonModule,
+        FormsModule,
+        MdCheckboxModule, 
+        NoopAnimationsModule,
+        ResourcesRoutingModule,
+        MdSliderModule,
+        MdCheckboxModule,
+        MdCoreModule,
+        MdButtonModule,
+        MdInputModule
     ],
     declarations: [
         ResourcesComponent,

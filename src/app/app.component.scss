@@ -1,6 +1,7 @@
 $fa-font-path: "/assets/font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 @import "~normalize.css/normalize.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 *, *::before, *::after {
   box-sizing: border-box;

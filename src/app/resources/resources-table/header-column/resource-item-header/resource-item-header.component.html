@@ -7,5 +7,17 @@
     <ul class="inside-data-list">
         <li class="inside-data-item" *ngFor="let proj of resItem.viewProjects">{{proj.name}}</li>
     </ul>
-    <button class="assign-btn" md-raised-button><i class="fa fa-plus"></i><span>Assign Project</span></button>
+    <div class="assign-panel-container" [ngClass]="{ 'show-panel': showAssignPanel }">
+        <div class="assign-btn-container" (click)="showAssignPanel=true">
+            <button class="assign-btn" md-raised-button><i class="fa fa-plus"></i><span>Assign Project</span></button>
+        </div>
+        <div class="assign-panel">
+            <md-select placeholder="Project" class="select-component" [(ngModel)]="selectedProject">
+                <md-option *ngFor="let proj of projects" [value]="proj.name">{{ proj.name }}</md-option>
+            </md-select>
+            <div class="assign-panel-btns">
+                <button md-raised-button (click)="assignItem()">Accept</button>
+                <button md-raised-button (click)="showAssignPanel=false">Cancel</button>
+        </div>
+    </div>
 </div>

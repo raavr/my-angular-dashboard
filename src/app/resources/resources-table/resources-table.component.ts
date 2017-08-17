@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { MoveDaysFrameService } from './move-items/move-days.service';
 import { TransformResourcesService } from './transform-resources.service';
 import { Resource } from '../resource/resource';
-import { ViewResource } from '../resource/view-resource';
+import { ViewResource, ViewProject } from '../resource/view-resource';
 import { DateRange } from '../resource/date-range';
 import { Subscription } from 'rxjs/Subscription';
+import { SelectedProject } from './header-column/resource-item-header/resource-item-header.component';
 
 @Component({
     selector: 'res-table',
@@ -35,4 +36,9 @@ export class ResourcesTableComponent {
         this.viewResourceSubscription.unsubscribe();
     }
 
+    assignValue(selectedProject: SelectedProject) {
+        const projectDatetimesList = this.transformResourcesService.createDefaultProjectDatetimeList(this.dateRange);
+        const viewProject = new ViewProject(selectedProject.value, projectDatetimesList);
+        this.viewResource[selectedProject.position].viewProjects.push(viewProject);
+    }
 }

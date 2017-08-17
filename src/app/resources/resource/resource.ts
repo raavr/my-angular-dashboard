@@ -8,6 +8,10 @@ export interface Project {
     datetimes: ProjectDatetime[];
 }
 
+export interface ProjectName {
+    name: string;
+}
+
 export class ProjectDatetime {
     date: number;
     workingHours: number;

@@ -4,7 +4,7 @@
             <res-type-header [resType]="'People'"></res-type-header>
             <res-info [resType]="'People'" [resCount]="viewResource.length"></res-info>
             <div class="items-header-container">
-                <res-item-header *ngFor="let res of viewResource; let idx = index" [resItem]="res" [position]="idx"></res-item-header>
+                <res-item-header *ngFor="let res of viewResource; let idx = index" [resItem]="res" [position]="idx" (assign)="assignValue($event)"></res-item-header>
             </div>
         </div>
         <div class="data-column">

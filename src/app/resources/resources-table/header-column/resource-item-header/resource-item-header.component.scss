@@ -38,10 +38,43 @@
 }
 
 .assign-btn {
-    margin: 5px 0 5px 30px;
+    margin: 30px 0 30px 30px;
     height: 40px;
 
     i {
         margin-right: 5px;
     }
+}
+
+.assign-panel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 440px;
+    transition: all 0.6s ease;
+    
+    &.show-panel {
+        transform: translateX(-220px);
+    }
+}
+
+.assign-btn-container {
+    width: 220px;
+}
+
+.assign-panel {
+    width: 220px;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.assign-panel-btns {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-component {
+    margin-top: 12px;
+    width: 100%;
 }

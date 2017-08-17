@@ -87,4 +87,8 @@ export class TransformResourcesService {
         });
     }
 
+    createDefaultProjectDatetimeList(dateRange: DateRange) {
+        const workingHoursMap = this.initWorkingHoursPerDayMap(dateRange);
+        return this.convertToProjectDatetime(workingHoursMap);
+    }
 }

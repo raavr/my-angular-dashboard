@@ -1,0 +1,22 @@
+$header-row-width-xs: 150px;
+$header-row-width: 230px;
+
+@mixin make-resp-width($width-xs, $width) {
+    min-width: $width-xs;
+    width: $width-xs;
+
+    @media(min-width: 576px) {
+        min-width: $width;
+        width: $width;
+    }
+}
+
+@mixin media-breakpoint-up() {
+  @if 576px {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

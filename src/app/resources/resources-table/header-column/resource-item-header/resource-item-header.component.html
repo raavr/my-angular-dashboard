@@ -1,7 +1,7 @@
 <button class="data-item" (click)="expandCollapseItem()">
-    <md-checkbox>{{resItem.member}}</md-checkbox>
-    <i *ngIf="!expanded" class="fa fa-angle-right" aria-hidden="true"></i>
-    <i *ngIf="expanded" class="fa fa-angle-down" aria-hidden="true"></i>
+    <span><i class="fa fa-user user-icon" aria-hidden="true"></i>{{resItem.member}}</span>
+    <i *ngIf="!expanded" class="fa fa-angle-right expand-collapse-icon" aria-hidden="true"></i>
+    <i *ngIf="expanded" class="fa fa-angle-down expand-collapse-icon" aria-hidden="true"></i>
 </button>
 <div [ngClass]="{ expanded: expanded, collapsed: !expanded }">
     <ul class="inside-data-list">
@@ -9,10 +9,10 @@
     </ul>
     <div class="assign-panel-container" [ngClass]="{ 'show-panel': showAssignPanel }">
         <div class="assign-btn-container" (click)="showAssignPanel=true">
-            <button class="assign-btn" md-raised-button><i class="fa fa-plus"></i><span>Assign Project</span></button>
+            <button class="assign-btn" md-raised-button><i class="fa fa-plus"></i><span>Assign</span></button>
         </div>
         <div class="assign-panel">
-            <md-select placeholder="Project" class="select-component" [(ngModel)]="selectedProject">
+            <md-select placeholder="Project" class="select-component" floatPlaceholder="never" [(ngModel)]="selectedProject">
                 <md-option *ngFor="let proj of projects" [value]="proj.name">{{ proj.name }}</md-option>
             </md-select>
             <div class="assign-panel-btns">

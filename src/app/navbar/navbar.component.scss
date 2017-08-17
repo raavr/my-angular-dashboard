@@ -1,3 +1,5 @@
+@import '../app.material-theme';
+
 .navbar-container {
     color: #ffffff;
     min-width: 250px;
@@ -23,7 +25,7 @@
 }
 
 .navbar {
-    background-color: #9854ff;
+    background-color: mat-color($candy-app-primary);
     padding-bottom: 50px;
 }
 
@@ -35,20 +37,20 @@
     padding: 20px;
 
     .brand-icon {
-        font-size: 1.8rem;
+        font-size: 2.8rem;
         margin-bottom: 10px;
     }
     
     .brand-title {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 2.2rem;
     }
 }
 
 .navbar-list {
     list-style: none;
     padding: 0;
-    font-size: 1rem;
+    font-size: 1.6rem;
     border-top: 1px solid rgba(255,255,255,0.1); 
     border-bottom: 1px solid rgba(255,255,255,0.1); 
 
@@ -61,14 +63,14 @@
         line-height: 60px;
 
         &:hover {
-            background-color: #8046e8;
-            border-left: 2px solid #ffffff;
+            background-color: mat-color($candy-app-primary, darker);
+            border-left: 2px solid mat-color($candy-app-accent);
             color: #ffffff;
         }
 
         i {
             margin-right: 15px;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             transform: translateY(2px);
             width: 22px;
             height: 22px;
@@ -80,7 +82,7 @@
 .hamburger-menu {
     width: 50px;
     height: 50px;
-    background-color: rgba(202, 176, 241, 0.4);
+    background-color: mat-color($candy-app-primary, lighter);
     position: fixed;
     top: 0;
     left: 0;

@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'no-content',
   styles: [`
       .no-content {
-          background-color: #eee; 
           display: flex; 
           justify-content: center; 
           align-items: center;

@@ -1,3 +1,6 @@
+@import '../../resources-table.constants';
+@import 'src/app/app.material-theme';
+
 .items-row {
     display: flex;
     flex-direction: row;
@@ -16,7 +19,7 @@
         width: 100%;
         height: 40px;
         line-height: 40px;
-        font-size: 0.7rem;
+        font-size: 1.2rem;
         vertical-align: middle;
         text-align: center;
         border: 1px solid #ffffff;
@@ -31,11 +34,17 @@
 @for $i from 0 through 8 {
     .item-span-#{$i} {
         span {
-            background-color: rgba(150, 97, 223, 0.3 + $i * 0.1);
+            background-color: rgba(mat-color($candy-app-primary), 0.2 + $i * 0.1);
         }
     }
 }
 
 .inside-items-row.expanded:last-child {
-    margin-bottom: 100px;
+    margin-bottom: 130px;
+
+    @include media-breakpoint-up() {
+        & {
+            margin-bottom: 90px;
+        }
+    }
 }

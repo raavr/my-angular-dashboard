@@ -1,16 +1,24 @@
 $fa-font-path: "/assets/font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 @import "~normalize.css/normalize.css";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./app.material-theme.scss";
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 html, body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
   min-height: 100%;
   background-color: #f8f9fd;
+}
+
+body {
+  font-size: 1.6rem;
 }
 
 app {
@@ -29,7 +37,7 @@ app {
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
   overflow: hidden;
-
+  width: 100%;
 }
 
 main {
@@ -53,6 +61,7 @@ main {
   padding: 30px 20px;
   border-top: 1px solid #f3f4f8;
   border-bottom: 1px solid #f3f4f8;
+  font-size: 3.6rem;
 
   @media (min-width: 576px) {
     & {

@@ -1,6 +1,18 @@
+@import '../../resources-table.constants';
+
 .header-row {
     padding: 5px 15px;
-    line-height: 40px;
     text-transform: uppercase;
     border-bottom: 1px solid #f2f2f2;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-breakpoint-up() {
+        & {
+            min-height: 65px;
+        }
+    }
+
 }

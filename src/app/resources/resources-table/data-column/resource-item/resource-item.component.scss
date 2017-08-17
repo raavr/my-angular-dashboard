@@ -23,6 +23,7 @@
         position: absolute;
         top: 5px;
         left: 0;
+        color: #ffffff;
     }
         
 }
@@ -30,7 +31,7 @@
 @for $i from 0 through 8 {
     .item-span-#{$i} {
         span {
-            background-color: rgba(201, 176, 241, 0.3 + $i * 0.1)
+            background-color: rgba(150, 97, 223, 0.3 + $i * 0.1);
         }
     }
 }

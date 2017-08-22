@@ -1,5 +1,7 @@
 # My Angular Dashboard built with Webpack
 
+Working example can be found here: http://raavr.github.io/my-angular-dashboard/
+
 Inspired by: https://cdn.dribbble.com/users/34556/screenshots/3702200/attachments/829321/dash-resourcing.jpg
 
 This app is built with:

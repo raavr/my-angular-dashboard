@@ -14,10 +14,6 @@ import '@angular/forms';
 import '@angular/http';
 import '@angular/router';
 
-// import 'jquery';
-// import 'bootstrap/js/dist/collapse';
-// import 'bootstrap/js/dist/modal';
-
 // AngularClass
 import '@angularclass/hmr';
 

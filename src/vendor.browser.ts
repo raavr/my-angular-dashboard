@@ -32,6 +32,9 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/zip';
 import 'rxjs/add/operator/debounceTime';
 
+//hemmerjs
+import 'hammerjs';
+
 if ('production' === ENV) {
   // Production
 

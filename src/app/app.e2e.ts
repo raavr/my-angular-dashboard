@@ -9,7 +9,7 @@ describe('App', () => {
 
   it('should have a title', () => {
     let subject = browser.getTitle();
-    let result  = 'Angular 2';
+    let result  = 'My Angular Dashboard';
     expect(subject).toEqual(result);
   });
 

@@ -24,7 +24,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'Angular 2',
+  title: 'My Angular Dashboard',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };

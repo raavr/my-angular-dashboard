@@ -1,16 +1,14 @@
-# Angular and Webpack
+# My Angular Dashboard built with Webpack
 
-An application using:
+Inspired by: https://cdn.dribbble.com/users/34556/screenshots/3702200/attachments/829321/dash-resourcing.jpg
+
+This app is built with:
 * [Angular] (http://www.angular.io/)
-* [Bootstrap v4] (https://v4-alpha.getbootstrap.com/)
+* [Angular material] (https://material.angular.io/)
 * [Sass] (http://sass-lang.com/)
 * [RxJs] (http://reactivex.io/rxjs/)
 * [TypeScript] (https://www.typescriptlang.org/)
 * [Webpack] (https://webpack.github.io/)
 * [npm] (https://www.npmjs.com/)
-
-And for testing:
-* [Karma] (https://karma-runner.github.io/)
-* [Jasmine] (http://jasmine.github.io/)
 
 Environment configuration by [@AngularClass](https://github.com/AngularClass/angular2-webpack-starter)

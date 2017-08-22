@@ -1,0 +1,187 @@
+{
+    "resources": [
+        {
+            "member": "John Doe",
+            "projects": [
+                {
+                    "name": "Project A",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 4
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 2
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 6
+                        }
+                    ]
+                },
+                {
+                    "name": "Project B",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 4
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 3
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 1
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "member": "David Best",
+            "projects": [
+                {
+                    "name": "Project A",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 2
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 4
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 4
+                        }
+                    ]
+                },
+                {
+                    "name": "Project B",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 6
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 3
+                        }
+                    ]
+                },
+                 {
+                    "name": "Project E",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 0
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 2
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 1
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "member": "Jake Akey",
+            "projects": [
+                {
+                    "name": "Project A",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 2
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 4
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 4
+                        }
+                    ]
+                },
+                {
+                    "name": "Project B",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 6
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 3
+                        }
+                    ]
+                },
+                 {
+                    "name": "Project E",
+                    "datetimes": [
+                        {
+                            "date": 1494540000000,
+                            "workingHours": 0
+                        },
+                        {
+                            "date": 1494626400000,
+                            "workingHours": 2
+                        },
+                        {
+                            "date": 1494799200000,
+                            "workingHours": 1
+                        },
+                        {
+                            "date": 1495144800000,
+                            "workingHours": 1
+                        }
+                    ]
+                }
+            ] 
+        }
+    ]
+}

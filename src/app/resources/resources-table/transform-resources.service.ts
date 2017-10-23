@@ -5,14 +5,15 @@ import { Observable } from 'rxjs/Observable';
 import { ViewResource, ViewProject, WorkingHoursPerDay, DailyProjectHours } from '../resource/view-resource';
 
 const ZERO_HOUR = 0;
+const DAYS_MS = 86400000; //1 day (86400000 ms)
 
 @Injectable()
 export class TransformResourcesService {
 
     getDaysList(dateRange: DateRange): Date[] {
-        return Array(Math.floor((dateRange.endDate.getTime() - dateRange.startDate.getTime()) / 86400000) + 1)
+        return Array(Math.floor((dateRange.endDate.getTime() - dateRange.startDate.getTime()) / DAYS_MS) + 1)
             .fill(0)
-            .map((e, idx) => (new Date(dateRange.startDate.getTime() + idx * 86400000)))
+            .map((e, idx) => (new Date(dateRange.startDate.getTime() + idx * DAYS_MS)))
     }
 
     private initWorkingHoursPerDayMap(dateRange: DateRange): WorkingHoursPerDay {
@@ -82,9 +83,7 @@ export class TransformResourcesService {
     }
 
     private convertToProjectDatetime(obj: WorkingHoursPerDay): ProjectDatetime[] {
-        return Object.keys(obj).map((key) => {
-            return new ProjectDatetime(+key, obj[key]);
-        });
+        return Object.keys(obj).map((key) => new ProjectDatetime(+key, obj[key]));
     }
 
     createDefaultProjectDatetimeList(dateRange: DateRange) {

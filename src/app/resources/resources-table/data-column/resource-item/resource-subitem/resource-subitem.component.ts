@@ -1,6 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Subject } from 'rxjs/Subject'; 
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'res-subitem',
@@ -15,7 +14,7 @@ export class ResourceSubitemComponent {
     @Output() assignHours = new EventEmitter<number>();
 
     private changeHoursSubject: Subject<string> = new Subject<string>();
-    private changeHoursSubscription: Subscription;
+    private unsub$ = new Subject<any>();
     
     isMenuOpen: boolean = false;
     currentWorkingHours: number = 0;
@@ -35,9 +34,10 @@ export class ResourceSubitemComponent {
     }
 
     ngOnInit() {
-        this.changeHoursSubscription = this.changeHoursSubject
+        this.changeHoursSubject
              .debounceTime(200)
-             .distinctUntilChanged() 
+             .distinctUntilChanged()
+             .takeUntil(this.unsub$) 
              .subscribe(model => {
                    if(+model > this.maxHours || +model < 0) {
                        this.currentWorkingHours = this.workingHours;
@@ -46,7 +46,8 @@ export class ResourceSubitemComponent {
     }
 
     ngOnDestroy() {
-        this.changeHoursSubscription.unsubscribe();
+        this.unsub$.next();
+        this.unsub$.complete();
     }
 
 }

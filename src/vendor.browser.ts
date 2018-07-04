@@ -24,6 +24,7 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/zip';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/takeUntil';
 
 //hemmerjs
 import 'hammerjs';

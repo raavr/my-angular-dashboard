@@ -1,53 +1,53 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { Subject } from 'rxjs/Subject'; 
+import { Subject } from 'rxjs/Subject';
 
 @Component({
-    selector: 'res-subitem',
-    templateUrl: './resource-subitem.component.html',
-    styleUrls: [ 
-        './resource-subitem.component.scss'
-    ]
+  selector: 'res-subitem',
+  templateUrl: './resource-subitem.component.html',
+  styleUrls: [
+    './resource-subitem.component.scss'
+  ]
 })
 export class ResourceSubitemComponent {
-    @Input() workingHours: number;
-    @Input() maxHours: number;
-    @Output() assignHours = new EventEmitter<number>();
+  @Input() workingHours: number;
+  @Input() maxHours: number;
+  @Output() assignHours = new EventEmitter<number>();
 
-    private changeHoursSubject: Subject<string> = new Subject<string>();
-    private unsub$ = new Subject<any>();
-    
-    isMenuOpen: boolean = false;
-    currentWorkingHours: number = 0;
+  private changeHoursSubject: Subject<string> = new Subject<string>();
+  private unsub$ = new Subject<any>();
 
-    openOverlay(): void {
-        this.isMenuOpen = true;
-        this.currentWorkingHours = this.workingHours;
-    }
+  isMenuOpen: boolean = false;
+  currentWorkingHours: number = 0;
 
-    assign(): void {
-        this.isMenuOpen = false;
-        this.assignHours.emit(this.currentWorkingHours);
-    }
+  openOverlay(): void {
+    this.isMenuOpen = true;
+    this.currentWorkingHours = this.workingHours;
+  }
 
-    changeValue(value: string): void {
-        this.changeHoursSubject.next(value);
-    }
+  assign(): void {
+    this.isMenuOpen = false;
+    this.assignHours.emit(this.currentWorkingHours);
+  }
 
-    ngOnInit() {
-        this.changeHoursSubject
-             .debounceTime(200)
-             .distinctUntilChanged()
-             .takeUntil(this.unsub$) 
-             .subscribe(model => {
-                   if(+model > this.maxHours || +model < 0) {
-                       this.currentWorkingHours = this.workingHours;
-                   }
-              });
-    }
+  changeValue(value: string): void {
+    this.changeHoursSubject.next(value);
+  }
 
-    ngOnDestroy() {
-        this.unsub$.next();
-        this.unsub$.complete();
-    }
+  ngOnInit() {
+    this.changeHoursSubject
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .takeUntil(this.unsub$)
+      .subscribe(model => {
+        if (+model > this.maxHours || +model < 0) {
+          this.currentWorkingHours = this.workingHours;
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.unsub$.next();
+    this.unsub$.complete();
+  }
 
 }

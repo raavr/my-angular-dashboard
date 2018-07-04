@@ -1,23 +1,23 @@
 export interface Resource {
-    member: string;
-    projects: Project[];
+  member: string;
+  projects: Project[];
 }
 
 export interface Project {
-    name: string,
-    datetimes: ProjectDatetime[];
+  name: string,
+  datetimes: ProjectDatetime[];
 }
 
 export interface ProjectName {
-    name: string;
+  name: string;
 }
 
 export class ProjectDatetime {
-    date: number;
-    workingHours: number;
+  date: number;
+  workingHours: number;
 
-    constructor(date: number, workingHours: number) {
-        this.date = date;
-        this.workingHours = workingHours;
-    }
+  constructor(date: number, workingHours: number) {
+    this.date = date;
+    this.workingHours = workingHours;
+  }
 }

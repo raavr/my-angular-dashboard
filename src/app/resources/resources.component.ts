@@ -3,19 +3,19 @@ import { Resource } from './resource/resource';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'resources',
-    templateUrl: './resources.component.html',
-    styleUrls: ['./resources.component.scss']
+  selector: 'resources',
+  templateUrl: './resources.component.html',
+  styleUrls: ['./resources.component.scss']
 })
 export class ResourcesComponent {
-    resources: Resource[];
+  resources: Resource[];
 
-    constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute) {
 
-    }
-    
-    ngOnInit() {
-        this.route.data
-            .subscribe((data: { resources: Resource[] }) => this.resources = data.resources);
-    }
+  }
+
+  ngOnInit() {
+    this.route.data
+      .subscribe((data: { resources: Resource[] }) => this.resources = data.resources);
+  }
 }

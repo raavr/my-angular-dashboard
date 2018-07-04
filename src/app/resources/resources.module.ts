@@ -20,36 +20,36 @@ import { TransformResourcesService } from './resources-table/transform-resources
 import { ExpandCollapseItemsService } from './resources-table/move-items/expand-collapse-items.service';
 
 @NgModule({
-    imports: [ 
-        CommonModule,
-        FormsModule,
-        MdCheckboxModule, 
-        NoopAnimationsModule,
-        ResourcesRoutingModule,
-        MdSliderModule,
-        MdCheckboxModule,
-        MdCoreModule,
-        MdButtonModule,
-        MdInputModule,
-        MdSelectModule
-    ],
-    declarations: [
-        ResourcesComponent,
-        ResourcesTableComponent,
-        MoveDaysDirective,
-        ResourceTypeHeaderComponent,
-        ResourceInfoComponent,
-        ResourceItemHeaderComponent,
-        ResourceMonthHeaderComponent,
-        ResourceDaysComponent,
-        ResourceItemComponent,
-        ResourceSubitemComponent
-    ],
-    providers: [ 
-        MoveDaysFrameService,
-        TransformResourcesService,
-        ExpandCollapseItemsService
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    MdCheckboxModule,
+    NoopAnimationsModule,
+    ResourcesRoutingModule,
+    MdSliderModule,
+    MdCheckboxModule,
+    MdCoreModule,
+    MdButtonModule,
+    MdInputModule,
+    MdSelectModule
+  ],
+  declarations: [
+    ResourcesComponent,
+    ResourcesTableComponent,
+    MoveDaysDirective,
+    ResourceTypeHeaderComponent,
+    ResourceInfoComponent,
+    ResourceItemHeaderComponent,
+    ResourceMonthHeaderComponent,
+    ResourceDaysComponent,
+    ResourceItemComponent,
+    ResourceSubitemComponent
+  ],
+  providers: [
+    MoveDaysFrameService,
+    TransformResourcesService,
+    ExpandCollapseItemsService
+  ]
 })
 export class ResourcesModule {
 

@@ -1,71 +1,71 @@
 <div class="navbar-container" [ngClass]="{ active: isActive }">
-    <nav class="navbar" role="navigation">
-        <header class="navbar-header">
-            <a href="#" title="Home" class="navbar-brand">
-                <div class="brand-icon">
-                    <i class="fa fa-superpowers" aria-hidden="true"></i>
-                </div>
-                <h1 class="brand-title">Dash X</h1>
-            </a>
-        </header>
-        <ul class="navbar-list">
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-tasks" aria-hidden="true"></i>
-                    <span>Projects</span>
-                </a>
-            </li>
-            <li>
-                <a [routerLink]="['./resources']" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    <span>Resources</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <span>Timesheets</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-file-text" aria-hidden="true"></i>
-                    <span>Documents</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-money" aria-hidden="true"></i>
-                    <span>Income</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-calculator" aria-hidden="true"></i>
-                    <span>Expenditure</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-cloud" aria-hidden="true"></i>
-                    <span>Assets</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-bank" aria-hidden="true"></i>
-                    <span>Liabilities</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Nav Link" class="navbar-link">
-                    <i class="fa fa-credit-card" aria-hidden="true"></i>
-                    <span>Payments</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+  <nav class="navbar" role="navigation">
+    <header class="navbar-header">
+      <a href="#" title="Home" class="navbar-brand">
+        <div class="brand-icon">
+          <i class="fa fa-superpowers" aria-hidden="true"></i>
+        </div>
+        <h1 class="brand-title">Dash X</h1>
+      </a>
+    </header>
+    <ul class="navbar-list">
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-tasks" aria-hidden="true"></i>
+          <span>Projects</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['./resources']" title="Nav Link" class="navbar-link">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <span>Resources</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <span>Timesheets</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-file-text" aria-hidden="true"></i>
+          <span>Documents</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-money" aria-hidden="true"></i>
+          <span>Income</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-calculator" aria-hidden="true"></i>
+          <span>Expenditure</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-cloud" aria-hidden="true"></i>
+          <span>Assets</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-bank" aria-hidden="true"></i>
+          <span>Liabilities</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="Nav Link" class="navbar-link">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <span>Payments</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 <button type="button" class="hamburger-menu" [ngClass]="{ active: isActive }" (click)="toggleNavbar()">
-    <span></span>
+  <span></span>
 </button>

@@ -1,144 +1,140 @@
 @import '../app.material-theme';
 
 .navbar-container {
-    color: #ffffff;
-    min-width: 250px;
-    position: fixed;
-    transform: translateX(-250px);
-    transition: all 0.6s ease;
-    overflow-y: scroll;
-    height: 100%;
-    z-index: 100;
+  color: #ffffff;
+  min-width: 250px;
+  position: fixed;
+  transform: translateX(-250px);
+  transition: all 0.6s ease;
+  overflow-y: scroll;
+  height: 100%;
+  z-index: 100;
 
-    &.active {
-        transform: translate(0px);
-    }
+  &.active {
+    transform: translate(0px);
+  }
 
-    @media(min-width: 768px) {
-        & {
-            position: absolute;
-            margin-left: 0;
-            transform: translate(0px);
-            overflow-y: auto;
-        }   
-    }
+  @media(min-width: 768px) {
+    & {
+      position: absolute;
+      margin-left: 0;
+      transform: translate(0px);
+      overflow-y: auto;
+    }   
+  }
 }
 
 .navbar {
-    background-color: mat-color($candy-app-primary);
-    padding-bottom: 50px;
+  background-color: mat-color($candy-app-primary);
+  padding-bottom: 50px;
 }
 
 
 .navbar-brand {
-    text-decoration: none;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
 
-    .brand-icon {
-        font-size: 2.8rem;
-        margin-bottom: 10px;
-    }
-    
-    .brand-title {
-        margin: 0;
-        font-size: 2.2rem;
-    }
+  .brand-icon {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .brand-title {
+    margin: 0;
+    font-size: 2.2rem;
+  }
 }
 
 .navbar-list {
-    list-style: none;
-    padding: 0;
-    font-size: 1.6rem;
-    border-top: 1px solid rgba(255,255,255,0.1); 
-    border-bottom: 1px solid rgba(255,255,255,0.1); 
+  list-style: none;
+  padding: 0;
+  font-size: 1.6rem;
+  border-top: 1px solid rgba(255,255,255,0.1); 
+  border-bottom: 1px solid rgba(255,255,255,0.1); 
 
-    .navbar-link {
-        color: rgba(255,255,255,0.8);
-        text-decoration: none;
-        display: block;
-        padding: 0px 20px;
-        border-left: 2px solid transparent;
-        line-height: 60px;
+  .navbar-link {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    display: block;
+    padding: 0px 20px;
+    border-left: 2px solid transparent;
+    line-height: 60px;
 
-        &:hover {
-            background-color: mat-color($candy-app-primary, darker);
-            border-left: 2px solid mat-color($candy-app-accent);
-            color: #ffffff;
-        }
-
-        i {
-            margin-right: 15px;
-            font-size: 1.6rem;
-            transform: translateY(2px);
-            width: 22px;
-            height: 22px;
-        }
+    &:hover {
+      background-color: mat-color($candy-app-primary, darker);
+      border-left: 2px solid mat-color($candy-app-accent);
+      color: #ffffff;
     }
-       
+
+    i {
+      margin-right: 15px;
+      font-size: 1.6rem;
+      transform: translateY(2px);
+      width: 22px;
+      height: 22px;
+    }
+  }    
 }
 
 .hamburger-menu {
-    width: 50px;
-    height: 50px;
-    background-color: mat-color($candy-app-primary, lighter);
-    position: fixed;
-    top: 0;
-    left: 0;
-    border: none;
-    outline: none;
-    transition: all 0.6s ease;
+  width: 50px;
+  height: 50px;
+  background-color: mat-color($candy-app-primary, lighter);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: none;
+  outline: none;
+  transition: all 0.6s ease;
 
-    @media (min-width: 768px) {
-        display: none;
-    }
+  @media (min-width: 768px) {
+    display: none;
+  }
 
-    &.active {
-        transform: translateX(250px);
-
-        span {
-        
-            background-color: transparent;
-
-            &::after {
-                transform: rotate(-45deg);
-                top: 0px;
-            }
-
-            &::before {
-                transform: rotate(45deg);
-                bottom: 0px;
-            }
-        
-        }
-    }
+  &.active {
+    transform: translateX(250px);
 
     span {
-        width: 20px;
-        height: 2px;
-        background-color: #ffffff;
-        position: relative;
-        display: block;
-        margin: 0 auto;
+      background-color: transparent;
 
-        &::after, &::before {
-            transition: all 0.6s ease;
-            position: absolute;
-            content: "";
-            width: 20px;
-            height: 2px;
-            background-color: #ffffff;
-            left: 0;
-        }
+      &::after {
+        transform: rotate(-45deg);
+        top: 0px;
+      }
 
-        &::after {
-            top: -5px;
-        }
+      &::before {
+        transform: rotate(45deg);
+        bottom: 0px;
+      } 
+    }
+  }
 
-        &::before {
-            bottom: -5px;
-        }
+  span {
+    width: 20px;
+    height: 2px;
+    background-color: #ffffff;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+
+    &::after, &::before {
+      transition: all 0.6s ease;
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 2px;
+      background-color: #ffffff;
+      left: 0;
     }
 
+    &::after {
+      top: -5px;
+    }
+
+    &::before {
+      bottom: -5px;
+    }
+  }
 }

@@ -1,55 +1,55 @@
 @import './resources-table.constants';
 
 .res-table-container {
-    padding: 20px 20px;
-    font-size: 1.4rem;
+  padding: 20px 20px;
+  font-size: 1.4rem;
 
-    @include media-breakpoint-up() {
-        & {
-            padding-left: 50px;
-            padding-right: 50px;
-            font-size: 1.6rem;
-        }
+  @include media-breakpoint-up() {
+    & {
+      padding-left: 50px;
+      padding-right: 50px;
+      font-size: 1.6rem;
     }
+  }
 }
 
 .res-table {
-    display: flex;
-    background-color: #ffffff;
-    border-radius: 5px;
-    margin: 0 auto;
-    width: 100%;
-    color: #3f3f3f;
-    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 100%;
+  color: #3f3f3f;
+  box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
 }
 
 .header-column {
-    overflow: hidden;
-    @include make-resp-width($header-row-width-xs, $header-row-width);
+  overflow: hidden;
+  @include make-resp-width($header-row-width-xs, $header-row-width);
 }
 
 .items-header-container {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .data-column {
-    width: 100%;
-    border-left: 1px solid #f2f2f2;
-    overflow: hidden;
+  width: 100%;
+  border-left: 1px solid #f2f2f2;
+  overflow: hidden;
 }
 
 .clipping-frame {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .moving-frame {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .items-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-    margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }

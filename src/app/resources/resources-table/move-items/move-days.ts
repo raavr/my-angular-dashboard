@@ -1,5 +1,5 @@
 export enum MOVE_DIR {
-    LEFT, RIGHT
+  LEFT, RIGHT
 }
 
 export const DAY_ELEM_SIZE = 50;

@@ -3,125 +3,124 @@
 $subitem-padding: 43px; //15px + 20px + 8px
 
 .data-item {
-    min-height: 50px;
-    line-height: 48px;
-    padding: 0 15px;
-    background: none;
-    width: 100%;
-    border: 0;
-    text-align: left;
+  min-height: 50px;
+  line-height: 48px;
+  padding: 0 15px;
+  background: none;
+  width: 100%;
+  border: 0;
+  text-align: left;
 
-    &:hover {
-        background-color:#f8f9fd;
-    }
+  &:hover {
+    background-color:#f8f9fd;
+  }
 
-    i {
-        width: 20px;
-        text-align: center;
-    }
+  i {
+    width: 20px;
+    text-align: center;
+  }
 
-    .user-icon {
-        margin-right: 8px;
-    }
+  .user-icon {
+    margin-right: 8px;
+  }
 
-    .expand-collapse-icon {
-        float: right;
-        height: 100%;
-        vertical-align: middle;
-        line-height: 50px;
-        font-size: 1.6rem;
-    }
+  .expand-collapse-icon {
+    float: right;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 1.6rem;
+  }
 }
 
 .inside-data-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .inside-data-item {
-    line-height: 40px;
-    font-size: 1.4rem;
-    padding-left: $subitem-padding; 
+  line-height: 40px;
+  font-size: 1.4rem;
+  padding-left: $subitem-padding; 
 
-    &:hover {
-        background-color:#f8f9fd;
-    }
+  &:hover {
+    background-color:#f8f9fd;
+  }
 
 }
 
 .assign-btn {
-    margin: 25px 0 25px $subitem-padding;
-    height: 40px;
+  margin: 25px 0 25px $subitem-padding;
+  height: 40px;
 
-    i {
-        margin-right: 5px;
-    }
+  i {
+    margin-right: 5px;
+  }
 }
 
 .assign-panel-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: all 0.6s ease;
-    @include make-resp-width(2*$header-row-width-xs, 2*$header-row-width);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.6s ease;
+  @include make-resp-width(2*$header-row-width-xs, 2*$header-row-width);
     
-    &.show-panel {
-        transform: translateX(-#{$header-row-width-xs});
+  &.show-panel {
+    transform: translateX(-#{$header-row-width-xs});
 
-        @include media-breakpoint-up() {
-            & {
-                transform: translateX(-#{$header-row-width});
-            }
-        }
-        
-    }
+    @include media-breakpoint-up() {
+      & {
+        transform: translateX(-#{$header-row-width});
+      }
+    }  
+  }
 }
 
 .assign-btn-container {
-   @include make-resp-width($header-row-width-xs, $header-row-width);
+  @include make-resp-width($header-row-width-xs, $header-row-width);
 }
 
 .assign-panel {
-    @extend .assign-btn-container;
-    padding-left: 15px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    min-height: 130px;
-    justify-content: center;
+  @extend .assign-btn-container;
+  padding-left: 15px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 130px;
+  justify-content: center;
 
-    @include media-breakpoint-up() {
-        & {
-            min-height: auto;
-            padding-left: $subitem-padding;
-        }
+  @include media-breakpoint-up() {
+    & {
+      min-height: auto;
+      padding-left: $subitem-padding;
     }
+  }
 }
 
 .assign-panel-btns {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @include media-breakpoint-up() {
+    & {
+      flex-direction: row;
+    }
+  }
+
+  button:last-child {
     margin-top: 5px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
 
     @include media-breakpoint-up() {
-        & {
-            flex-direction: row;
-        }
+      & {
+          margin-top: 0px;
+      }
     }
-
-    button:last-child {
-        margin-top: 5px;
-
-        @include media-breakpoint-up() {
-            & {
-                margin-top: 0px;
-            }
-        }
-    }
+  }
 }
 
 .select-component {
-    width: 100%;
+  width: 100%;
 }

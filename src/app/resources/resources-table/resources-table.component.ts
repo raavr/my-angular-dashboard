@@ -8,39 +8,39 @@ import { SelectedProject } from './header-column/resource-item-header/resource-i
 import { Subject } from 'rxjs/Subject';
 
 @Component({
-    selector: 'res-table',
-    templateUrl: './resources-table.component.html',
-    styleUrls: [ 
-        './resources-table.component.scss'
-    ]
+  selector: 'res-table',
+  templateUrl: './resources-table.component.html',
+  styleUrls: [
+    './resources-table.component.scss'
+  ]
 })
 export class ResourcesTableComponent {
-    @Input() resources: Resource[];
-    viewResource: ViewResource[];
-    days: Date[];
-    dateRange: DateRange;
-    unsub$ = new Subject<any>();
+  @Input() resources: Resource[];
+  viewResource: ViewResource[];
+  days: Date[];
+  dateRange: DateRange;
+  unsub$ = new Subject<any>();
 
-    constructor(private moveDaysService: MoveDaysFrameService, private transformResourcesService: TransformResourcesService) { }
+  constructor(private moveDaysService: MoveDaysFrameService, private transformResourcesService: TransformResourcesService) { }
 
-    ngOnInit() {
-        this.dateRange = new DateRange(new Date("05-12-2017"), new Date("06-06-2017"));
-        this.days = this.transformResourcesService.getDaysList(this.dateRange);
-        
-        this.transformResourcesService
-            .transformResourcesData(this.resources, this.dateRange)
-            .takeUntil(this.unsub$)
-            .subscribe((elem) => this.viewResource = elem); 
-    }
+  ngOnInit() {
+    this.dateRange = new DateRange(new Date("05-12-2017"), new Date("06-06-2017"));
+    this.days = this.transformResourcesService.getDaysList(this.dateRange);
 
-    ngOnDestroy() {
-        this.unsub$.next();
-        this.unsub$.complete();
-    }
+    this.transformResourcesService
+      .transformResourcesData(this.resources, this.dateRange)
+      .takeUntil(this.unsub$)
+      .subscribe((elem) => this.viewResource = elem);
+  }
 
-    assignValue(selectedProject: SelectedProject) {
-        const projectDatetimesList = this.transformResourcesService.createDefaultProjectDatetimeList(this.dateRange);
-        const viewProject = new ViewProject(selectedProject.value, projectDatetimesList);
-        this.viewResource[selectedProject.position].viewProjects.push(viewProject);
-    }
+  ngOnDestroy() {
+    this.unsub$.next();
+    this.unsub$.complete();
+  }
+
+  assignValue(selectedProject: SelectedProject) {
+    const projectDatetimesList = this.transformResourcesService.createDefaultProjectDatetimeList(this.dateRange);
+    const viewProject = new ViewProject(selectedProject.value, projectDatetimesList);
+    this.viewResource[selectedProject.position].viewProjects.push(viewProject);
+  }
 }

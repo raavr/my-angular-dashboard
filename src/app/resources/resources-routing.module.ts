@@ -7,11 +7,20 @@ import { ResourcesResolver } from './resources.resolver';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'resources', component: ResourcesComponent, resolve: { resources: ResourcesResolver } }
+      { 
+        path: 'resources', 
+        component: ResourcesComponent, 
+        resolve: { 
+          resources: ResourcesResolver 
+        }
+      }
     ])
   ],
   exports: [RouterModule],
-  providers: [ResourcesService, ResourcesResolver]
+  providers: [
+    ResourcesService, 
+    ResourcesResolver
+  ]
 })
 export class ResourcesRoutingModule {
 

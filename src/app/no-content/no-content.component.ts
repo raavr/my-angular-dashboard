@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'no-content',
   styles: [`
-      .no-content {
-          display: flex; 
-          justify-content: center; 
-          align-items: center;
-      }
+    .no-content {
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+    }
   `],
   template: `
     <section class="no-content">

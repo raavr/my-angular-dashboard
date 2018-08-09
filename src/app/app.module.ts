@@ -22,16 +22,19 @@ const APP_PROVIDERS = [
 ];
 
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     NoContentComponent
   ],
-  imports: [ 
+  imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(ROUTES, {
+      useHash: true,
+      preloadingStrategy: PreloadAllModules
+    }),
     NavbarModule,
     ResourcesModule
   ],
@@ -43,4 +46,3 @@ const APP_PROVIDERS = [
 export class AppModule {
 
 }
-

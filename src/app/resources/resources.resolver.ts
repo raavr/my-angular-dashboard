@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Router, Resolve, RouterStateSnapshot,
-         ActivatedRouteSnapshot } from '@angular/router';
+import { 
+  Router, 
+  Resolve, 
+  RouterStateSnapshot,
+  ActivatedRouteSnapshot 
+} from '@angular/router';
 
 import { ResourcesService } from './resources.service';
 import { Resource } from './resource/resource';

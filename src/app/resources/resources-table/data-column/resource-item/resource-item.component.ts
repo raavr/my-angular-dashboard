@@ -29,10 +29,10 @@ export class ResourceItemComponent {
       .subscribe(expanded => this.expanded = expanded);
   }
 
-  countMaxHoursPerSubitem(projIdx: number, dayIdx: number) {
+  countMaxHoursPerSubitem(projIdx: number, dateIdx: number) {
     return MAX_HOURS 
-      - this.resItem.summedHoursPerDate[dayIdx].workingHours 
-      + this.resItem.projectHoursPerDate[projIdx].hoursPerDate[dayIdx].workingHours;
+      - this.resItem.summedHoursPerDate[dateIdx].workingHours 
+      + this.resItem.projectHoursPerDate[projIdx].hoursPerDate[dateIdx].workingHours;
   }
 
   updateDaysHours(newValue: number, projIdx: number, dateIdx: number) {

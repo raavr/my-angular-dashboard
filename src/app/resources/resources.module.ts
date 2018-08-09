@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MdCheckboxModule, MdSliderModule, MdCoreModule, MdButtonModule, MdInputModule, MdSelectModule } from '@angular/material';
+import { 
+  MdCheckboxModule, 
+  MdSliderModule, 
+  MdCoreModule, 
+  MdButtonModule, 
+  MdInputModule, 
+  MdSelectModule 
+} from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ResourcesRoutingModule } from './resources-routing.module';

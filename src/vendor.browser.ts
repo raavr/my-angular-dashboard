@@ -27,7 +27,7 @@ import 'rxjs/add/observable/zip';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/takeUntil';
 
-//hemmerjs
+//hammerjs
 import 'hammerjs';
 
 if ('production' === ENV) {

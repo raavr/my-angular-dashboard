@@ -10,12 +10,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ResourcesComponent {
   resources: Resource[];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-
-  }
+  constructor(
+    private router: Router, 
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.route.data
-      .subscribe((data: { resources: Resource[] }) => this.resources = data.resources);
+      .subscribe(
+        (data: { resources: Resource[] }) => this.resources = data.resources
+      );
   }
 }

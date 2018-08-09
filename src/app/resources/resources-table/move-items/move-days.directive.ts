@@ -24,12 +24,13 @@ export class MoveDaysDirective {
   }
 
   private setMovingFrameWidth(): void {
-    this.el.nativeElement.children[0].style.width = this.daysCount * DAY_ELEM_SIZE - this.daysCount + "px";
+    const movingFrameWidth = this.daysCount * DAY_ELEM_SIZE - this.daysCount;
+    this.el.nativeElement.children[0].style.width = `${movingFrameWidth}px`;
   }
 
   private updatePosition(moveDir: MOVE_DIR): void {
-    let offsetRight = this.el.nativeElement.getBoundingClientRect().right;
-    let offsetChildRight = this.el.nativeElement.children[0].getBoundingClientRect().right;
+    const offsetRight = this.el.nativeElement.getBoundingClientRect().right;
+    const offsetChildRight = this.el.nativeElement.children[0].getBoundingClientRect().right;
 
     switch (moveDir) {
       case MOVE_DIR.RIGHT:
@@ -49,7 +50,7 @@ export class MoveDaysDirective {
     this.updatePosition(moveDir);
 
     const moveValue = -DAY_ELEM_SIZE * this.currentPosition + this.currentPosition;
-    this.el.nativeElement.children[0].style.transform = "translateX(" + moveValue + "px)";
+    this.el.nativeElement.children[0].style.transform = `translateX(${moveValue}px)`;
   }
 
   ngOnDestroy() {

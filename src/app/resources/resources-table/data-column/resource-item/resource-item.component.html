@@ -1,9 +1,9 @@
 <div class="items-row" (click)="expandCollapseItem()">
-  <div *ngFor="let viewDay of resItem.viewDays" class="item-span item-span-{{viewDay.workingHours}}">
-    <span>{{viewDay.workingHours === 0 ? '+' : viewDay.workingHours + 'h'}}</span>
+  <div *ngFor="let summedHours of resItem.summedHoursPerDate" class="item-span item-span-{{summedHours.workingHours}}">
+    <span>{{summedHours.workingHours === 0 ? '+' : summedHours.workingHours + 'h'}}</span>
   </div>
 </div>
-<div class="items-row inside-items-row" *ngFor="let viewProject of resItem.viewProjects; let projIdx = index;" [ngClass]="{ expanded: expanded, collapsed: !expanded }">
-  <res-subitem *ngFor="let projectDay of viewProject.viewDays; let dayIdx = index" [workingHours]="projectDay.workingHours"
-    [maxHours]="countMaxHoursPerSubitem(projIdx, dayIdx)" (assignHours)="updateDaysHours($event, projIdx, dayIdx)"></res-subitem>
+<div class="items-row inside-items-row" *ngFor="let viewProject of resItem.projectHoursPerDate; let projIdx = index;" [ngClass]="{ expanded: expanded, collapsed: !expanded }">
+  <res-subitem *ngFor="let projectHours of viewProject.hoursPerDate; let dateIdx = index" [workingHours]="projectHours.workingHours"
+    [maxHours]="countMaxHoursPerSubitem(projIdx, dateIdx)" (assignHours)="updateDaysHours($event, projIdx, dateIdx)"></res-subitem>
 </div>

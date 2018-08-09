@@ -37,12 +37,9 @@ export class ResourceSubitemComponent {
     this.changeHoursSubject
       .debounceTime(200)
       .distinctUntilChanged()
+      .filter(model => +model > this.maxHours || +model < 0)
       .takeUntil(this.unsub$)
-      .subscribe(model => {
-        if (+model > this.maxHours || +model < 0) {
-          this.currentWorkingHours = this.workingHours;
-        }
-      });
+      .subscribe(_ => this.currentWorkingHours = this.workingHours);
   }
 
   ngOnDestroy() {

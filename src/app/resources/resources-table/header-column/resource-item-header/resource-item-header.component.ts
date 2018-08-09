@@ -4,6 +4,7 @@ import { ProjectName } from '../../../resource/resource';
 import { ExpandCollapseItemsService } from '../../move-items/expand-collapse-items.service';
 import { ResourcesService } from '../../../resources.service';
 import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 export interface SelectedProject {
   value: string;
@@ -25,29 +26,29 @@ export class ResourceItemHeaderComponent {
   unsub$ = new Subject<any>();
 
   expanded: boolean = false;
-  showAssignPanel: boolean = false;
+  showAssigningPanel: boolean = false;
   selectedProject: string;
-  projects: ProjectName[];
+  availableProjects: ProjectName[];
 
-  constructor(private expandCollapseItemService: ExpandCollapseItemsService, private resourcesService: ResourcesService) { }
+  constructor(
+    private expandCollapseItemService: ExpandCollapseItemsService, 
+    private resourcesService: ResourcesService
+  ) { }
 
   ngOnInit() {
     this.expandCollapseItemService.expandItem$
+      .filter(expandedItem => expandedItem.position === this.position)
+      .map(expandedItem => expandedItem.expand)
       .takeUntil(this.unsub$)
-      .subscribe((expandedItem) => {
-        if (expandedItem.position === this.position) {
-          this.expanded = expandedItem.expand;
-        }
-      });
-
+      .subscribe(expanded => this.expanded = expanded);
+    
+    const viewProjects = this.resItem.projectHoursPerDate.map((vProj) => vProj.name);
     this.resourcesService.getProjects()
+      .mergeMap(p => Observable.from(p))
+      .filter(project => viewProjects.indexOf(project.name) == -1)
+      .toArray()
       .takeUntil(this.unsub$)
-      .subscribe((allProjs) => {
-        this.projects = allProjs.filter((proj) => {
-          return this.resItem.viewProjects.map((vProj) => vProj.name).indexOf(proj.name) == -1;
-        });
-      });
-
+      .subscribe(availableProjects => this.availableProjects = availableProjects);
   }
 
   expandCollapseItem() {
@@ -58,12 +59,16 @@ export class ResourceItemHeaderComponent {
     if (this.selectedProject) {
       this.assign.emit({ value: this.selectedProject, position: this.position });
 
-      const idx = this.projects.findIndex((elem) => elem.name === this.selectedProject);
-      this.projects.splice(idx, 1);
-
-      this.showAssignPanel = false;
-      this.selectedProject = null;
+      this.makeSelectedProjectUnavailable();
+      this.showAssigningPanel = false;
     }
+  }
+
+  private makeSelectedProjectUnavailable() {
+    const idx = this.availableProjects.findIndex((elem) => elem.name === this.selectedProject);
+    this.availableProjects.splice(idx, 1);
+    
+    this.selectedProject = null;
   }
 
   ngOnDestroy() {

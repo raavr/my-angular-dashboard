@@ -1,37 +1,37 @@
-import { ProjectDatetime } from './resource';
+import { HoursPerDate } from './resource';
 
 export class ViewResource {
   member: string;
-  viewDays: ProjectDatetime[];
-  viewProjects: ViewProject[];
+  projectHoursPerDate: ViewProject[];
+  summedHoursPerDate: HoursPerDate[];
 
-  constructor(member: string, viewDays: ProjectDatetime[], viewProjects: ViewProject[]) {
+  constructor(member: string, projectHoursPerDate: ViewProject[],  summedHoursPerDate: HoursPerDate[]) {
     this.member = member;
-    this.viewDays = viewDays;
-    this.viewProjects = viewProjects;
+    this.projectHoursPerDate = projectHoursPerDate;
+    this.summedHoursPerDate = summedHoursPerDate;
   }
 }
 
 export class ViewProject {
   name: string;
-  viewDays: ProjectDatetime[];
+  hoursPerDate: HoursPerDate[];
 
-  constructor(name: string, viewDays: ProjectDatetime[]) {
+  constructor(name: string, hoursPerDate: HoursPerDate[]) {
     this.name = name;
-    this.viewDays = viewDays;
+    this.hoursPerDate = hoursPerDate;
   }
 }
 
-export interface WorkingHoursPerDay {
+export interface HoursPerDateMap {
   [key: number]: number
 }
 
-export class DailyProjectHours {
+export class ProjectWorkingHours {
   projectName: string;
-  workingHoursPerDay: WorkingHoursPerDay;
+  hoursPerDateMap: HoursPerDateMap;
 
-  constructor(projectName: string, workingHoursPerDay: WorkingHoursPerDay) {
+  constructor(projectName: string, hoursPerDateMap: HoursPerDateMap) {
     this.projectName = projectName;
-    this.workingHoursPerDay = workingHoursPerDay;
+    this.hoursPerDateMap = hoursPerDateMap;
   }
 }

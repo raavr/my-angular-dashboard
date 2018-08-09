@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Resource, ProjectDatetime } from '../resource/resource';
+import { Resource, HoursPerDate, Project } from '../resource/resource';
 import { DateRange } from '../resource/date-range';
 import { Observable } from 'rxjs/Observable';
-import { ViewResource, ViewProject, WorkingHoursPerDay, DailyProjectHours } from '../resource/view-resource';
+import {
+  ViewResource,
+  ViewProject,
+  HoursPerDateMap,
+  ProjectWorkingHours
+} from '../resource/view-resource';
 
 const ZERO_HOUR = 0;
 const DAYS_MS = 86400000; //1 day (86400000 ms)
@@ -11,12 +16,17 @@ const DAYS_MS = 86400000; //1 day (86400000 ms)
 export class TransformResourcesService {
 
   getDaysList(dateRange: DateRange): Date[] {
-    return Array(Math.floor((dateRange.endDate.getTime() - dateRange.startDate.getTime()) / DAYS_MS) + 1)
+    const dateDiff = dateRange.endDate.getTime() - dateRange.startDate.getTime();
+    const daysNumber = Math.floor(dateDiff) / DAYS_MS + 1;
+
+    return Array(daysNumber)
       .fill(0)
-      .map((e, idx) => (new Date(dateRange.startDate.getTime() + idx * DAYS_MS)))
+      .map(
+        (_, idx) => new Date(dateRange.startDate.getTime() + idx * DAYS_MS)
+      );
   }
 
-  private initWorkingHoursPerDayMap(dateRange: DateRange): WorkingHoursPerDay {
+  private initDefaultHoursPerDateMap(dateRange: DateRange): HoursPerDateMap {
     return this.getDaysList(dateRange)
       .reduce((obj, next) => {
         obj[next.getTime()] = ZERO_HOUR;
@@ -24,70 +34,81 @@ export class TransformResourcesService {
       }, {});
   }
 
-  private assignWorkingHoursToDaysMap(datetimes: ProjectDatetime[], workingHoursPerDayMap: WorkingHoursPerDay): WorkingHoursPerDay {
-    const hoursPerDayMap = Object.assign({}, workingHoursPerDayMap);
-    datetimes.forEach((elem) => hoursPerDayMap[elem.date] = elem.workingHours);
-    return hoursPerDayMap;
+  private assignHoursToDate(hoursPerDateList: HoursPerDate[], hoursPerDateMap: HoursPerDateMap): Observable<HoursPerDateMap> {
+    return Observable.from(hoursPerDateList)
+      .reduce(
+        (hoursPerDayMap: HoursPerDateMap, hoursPerDate: HoursPerDate) => {
+          hoursPerDayMap[hoursPerDate.date] = hoursPerDate.workingHours;
+          return hoursPerDayMap;
+        },
+        Object.assign({}, hoursPerDateMap)
+      )
   }
 
-  transformResourcesData(resources: Resource[], dateRange: DateRange): Observable<ViewResource[]> {
-    const hoursPerDayMap = this.initWorkingHoursPerDayMap(dateRange);
-
+  transformResources(resources: Resource[], dateRange: DateRange): Observable<ViewResource[]> {
+    const hoursPerDateMap = this.initDefaultHoursPerDateMap(dateRange);
     return Observable.from(resources)
-      .map(resource => this.transformSingleResource(resource, hoursPerDayMap))
-      .flatMap((m) => Observable.from(m))
+      .switchMap(resource =>
+        this.mapToProjectsWithHours(resource.projects, hoursPerDateMap),
+        (resource, projectsWithHoursList) => ({
+          member: resource.member,
+          projectsWithHoursList: projectsWithHoursList
+        })
+      ).switchMap(
+        (memberWithProjects) => this.mapToViewProjectList(memberWithProjects.projectsWithHoursList),
+        (memberWithProjects, viewProjectsList) => ({ ...memberWithProjects, viewProjectsList })
+      ).switchMap(
+        (memberWithProjects) => this.sumAllProjectHoursPerDay(memberWithProjects.projectsWithHoursList),
+        (memberWithProjects, allDailyHoursPerMember) =>
+          new ViewResource(
+            memberWithProjects.member,
+            memberWithProjects.viewProjectsList,
+            allDailyHoursPerMember
+          )
+      ).toArray();
+  }
+
+  private mapToProjectsWithHours(projects: Project[], hoursPerDayMap: HoursPerDateMap): Observable<ProjectWorkingHours[]> {
+    return Observable.from(projects)
+      .switchMap(
+        project => this.assignHoursToDate(project.hoursPerDate, hoursPerDayMap),
+        (project, workingHoursPerDay: HoursPerDateMap) => new ProjectWorkingHours(project.name, workingHoursPerDay)
+      ).toArray();
+  }
+
+  private mapToViewProjectList(projectWorkingHours: ProjectWorkingHours[]): Observable<ViewProject[]> {
+    return Observable.from(projectWorkingHours)
+      .switchMap(
+        singleProjectHours => Observable.of(this.mapToHoursPerDateList(singleProjectHours.hoursPerDateMap)),
+        (singleProjectHours, projectDatetimeList) => new ViewProject(singleProjectHours.projectName, projectDatetimeList)
+      )
       .toArray();
   }
 
-  private transformSingleResource(resource: Resource, hoursPerDayMap: WorkingHoursPerDay): Observable<ViewResource> {
-    return Observable
-      .from(resource.projects)
-      .map(project =>
-        new DailyProjectHours(project.name, this.assignWorkingHoursToDaysMap(project.datetimes, hoursPerDayMap))
+  private mapToHoursPerDateList(map: HoursPerDateMap): HoursPerDate[] {
+    return Object.keys(map)
+      .map(key => new HoursPerDate(+key, map[key]));
+  }
+
+  private sumAllProjectHoursPerDay(projectWorkingHours: ProjectWorkingHours[]): Observable<HoursPerDate[]> {
+    return Observable.from(projectWorkingHours)
+      .map(projectHours => projectHours.hoursPerDateMap)
+      .reduce(
+        (finalObj, current) => this.sumProjectHoursPerDay(finalObj, current), {}
       )
-      .toArray()
-      .map((transfProjects) => this.createFinalTransformedResource(resource.member, transfProjects))
-      .flatMap((transfResource) => Observable.from(transfResource));
+      .map(e => Observable.of(this.mapToHoursPerDateList(e)))
+      .flatMap(e => Observable.from(e));
   }
 
-  private createFinalTransformedResource(member: string, transfProjects: DailyProjectHours[]): Observable<ViewResource> {
-    return Observable.from(transfProjects)
-      .map(el => el.workingHoursPerDay)
-      .toArray()
-      .map((e) =>
-        new ViewResource(
-          member,
-          this.convertToProjectDatetime(this.sumAllDailyProjectHours(e)),
-          transfProjects.map(
-            (elem) => new ViewProject(elem.projectName, this.convertToProjectDatetime(elem.workingHoursPerDay))
-          )
-        )
-      );
-
-  }
-
-  private sumProjectHours(objA: WorkingHoursPerDay, objB: WorkingHoursPerDay): WorkingHoursPerDay {
+  private sumProjectHoursPerDay(objA: HoursPerDateMap, objB: HoursPerDateMap): HoursPerDateMap {
     return Object.keys(objA).reduce((obj, k) => {
       obj[k] = (obj[k] || 0) + objA[k];
       return obj;
     }, Object.assign({}, objB))
   }
 
-  private sumAllDailyProjectHours(obj: WorkingHoursPerDay[]): WorkingHoursPerDay {
-    let currentObject = Object.assign({}, obj[0]);
-
-    for (let i = 1; i < obj.length; i++) {
-      currentObject = Object.assign({}, this.sumProjectHours(currentObject, obj[i]));
-    }
-    return currentObject;
-  }
-
-  private convertToProjectDatetime(obj: WorkingHoursPerDay): ProjectDatetime[] {
-    return Object.keys(obj).map((key) => new ProjectDatetime(+key, obj[key]));
-  }
-
-  createDefaultProjectDatetimeList(dateRange: DateRange) {
-    const workingHoursMap = this.initWorkingHoursPerDayMap(dateRange);
-    return this.convertToProjectDatetime(workingHoursMap);
+  createDefaultHoursPerDateList(dateRange: DateRange) {
+    const workingHoursMap = this.initDefaultHoursPerDateMap(dateRange);
+    return this.mapToHoursPerDateList(workingHoursMap);
   }
 }

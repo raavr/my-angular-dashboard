@@ -23,22 +23,22 @@ export class ResourceItemComponent {
 
   ngOnInit() {
     this.expandCollapseItemService.expandItem$
+      .filter(expandedItem => expandedItem.position === this.position)
+      .map(expandedItem => expandedItem.expand)
       .takeUntil(this.unsub$)
-      .subscribe((expandedItem) => {
-        if (expandedItem.position === this.position) {
-          this.expanded = expandedItem.expand;
-        }
-      })
+      .subscribe(expanded => this.expanded = expanded);
   }
 
   countMaxHoursPerSubitem(projIdx: number, dayIdx: number) {
-    return MAX_HOURS - this.resItem.viewDays[dayIdx].workingHours + this.resItem.viewProjects[projIdx].viewDays[dayIdx].workingHours;
+    return MAX_HOURS 
+      - this.resItem.summedHoursPerDate[dayIdx].workingHours 
+      + this.resItem.projectHoursPerDate[projIdx].hoursPerDate[dayIdx].workingHours;
   }
 
-  updateDaysHours(newValue: number, projIdx: number, dayIdx: number) {
-    let currentWorkingHours = this.resItem.viewProjects[projIdx].viewDays[dayIdx].workingHours;
-    this.resItem.viewProjects[projIdx].viewDays[dayIdx].workingHours = newValue;
-    this.resItem.viewDays[dayIdx].workingHours = this.resItem.viewDays[dayIdx].workingHours - currentWorkingHours + newValue;
+  updateDaysHours(newValue: number, projIdx: number, dateIdx: number) {
+    const currentWorkingHours = this.resItem.projectHoursPerDate[projIdx].hoursPerDate[dateIdx].workingHours;
+    this.resItem.projectHoursPerDate[projIdx].hoursPerDate[dateIdx].workingHours = newValue;
+    this.resItem.summedHoursPerDate[dateIdx].workingHours = this.resItem.summedHoursPerDate[dateIdx].workingHours - currentWorkingHours + newValue;
   }
 
   expandCollapseItem() {

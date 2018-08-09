@@ -5,7 +5,7 @@
             "projects": [
                 {
                     "name": "Project A",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 4
@@ -26,7 +26,7 @@
                 },
                 {
                     "name": "Project B",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 4
@@ -52,7 +52,7 @@
             "projects": [
                 {
                     "name": "Project A",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 2
@@ -73,7 +73,7 @@
                 },
                 {
                     "name": "Project B",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 6
@@ -94,7 +94,7 @@
                 },
                  {
                     "name": "Project E",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 0
@@ -120,7 +120,7 @@
             "projects": [
                 {
                     "name": "Project A",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 2
@@ -141,7 +141,7 @@
                 },
                 {
                     "name": "Project B",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 6
@@ -162,7 +162,7 @@
                 },
                  {
                     "name": "Project E",
-                    "datetimes": [
+                    "hoursPerDate": [
                         {
                             "date": 1494540000000,
                             "workingHours": 0

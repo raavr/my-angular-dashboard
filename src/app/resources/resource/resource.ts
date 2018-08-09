@@ -5,14 +5,14 @@ export interface Resource {
 
 export interface Project {
   name: string,
-  datetimes: ProjectDatetime[];
+  hoursPerDate: HoursPerDate[];
 }
 
 export interface ProjectName {
   name: string;
 }
 
-export class ProjectDatetime {
+export class HoursPerDate {
   date: number;
   workingHours: number;
 

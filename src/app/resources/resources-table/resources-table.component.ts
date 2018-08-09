@@ -16,21 +16,24 @@ import { Subject } from 'rxjs/Subject';
 })
 export class ResourcesTableComponent {
   @Input() resources: Resource[];
-  viewResource: ViewResource[];
+  viewResources: ViewResource[];
   days: Date[];
   dateRange: DateRange;
   unsub$ = new Subject<any>();
 
-  constructor(private moveDaysService: MoveDaysFrameService, private transformResourcesService: TransformResourcesService) { }
+  constructor(
+    private moveDaysService: MoveDaysFrameService, 
+    private transformResourcesService: TransformResourcesService
+  ) { }
 
   ngOnInit() {
     this.dateRange = new DateRange(new Date("05-12-2017"), new Date("06-06-2017"));
     this.days = this.transformResourcesService.getDaysList(this.dateRange);
 
     this.transformResourcesService
-      .transformResourcesData(this.resources, this.dateRange)
+      .transformResources(this.resources, this.dateRange)
       .takeUntil(this.unsub$)
-      .subscribe((elem) => this.viewResource = elem);
+      .subscribe((res) => this.viewResources = res);
   }
 
   ngOnDestroy() {
@@ -38,9 +41,9 @@ export class ResourcesTableComponent {
     this.unsub$.complete();
   }
 
-  assignValue(selectedProject: SelectedProject) {
-    const projectDatetimesList = this.transformResourcesService.createDefaultProjectDatetimeList(this.dateRange);
-    const viewProject = new ViewProject(selectedProject.value, projectDatetimesList);
-    this.viewResource[selectedProject.position].viewProjects.push(viewProject);
+  assignProject(selectedProject: SelectedProject) {
+    const hoursPerDateList = this.transformResourcesService.createDefaultHoursPerDateList(this.dateRange);
+    const viewProject = new ViewProject(selectedProject.value, hoursPerDateList);
+    this.viewResources[selectedProject.position].projectHoursPerDate.push(viewProject);
   }
 }

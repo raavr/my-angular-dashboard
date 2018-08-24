@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ViewResource } from '../../../resource/view-resource';
-import { ProjectName } from '../../../resource/resource';
-import { ExpandCollapseItemsService } from '../../move-items/expand-collapse-items.service';
-import { ResourcesService } from '../../../resources.service';
+import { ViewResource } from '../resources-model/view-resource';
+import { ProjectName } from '../resources-model/resource';
+import { ExpandCollapseItemsService } from '../move-items/expand-collapse-items.service';
+import { ResourcesService } from '../resources.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,13 +12,13 @@ export interface SelectedProject {
 }
 
 @Component({
-  selector: 'res-item-header',
-  templateUrl: './resource-item-header.component.html',
+  selector: 'res-member',
+  templateUrl: './resources-member.component.html',
   styleUrls: [
-    './resource-item-header.component.scss'
+    './resources-member.component.scss'
   ]
 })
-export class ResourceItemHeaderComponent {
+export class ResourcesMemberComponent {
   @Input() resItem: ViewResource;
   @Input() position: number;
   @Output() assign = new EventEmitter<SelectedProject>();

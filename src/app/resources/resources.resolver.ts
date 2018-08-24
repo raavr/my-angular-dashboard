@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 
 import { ResourcesService } from './resources.service';
-import { Resource } from './resource/resource';
+import { Resource } from './resources-model/resource';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()

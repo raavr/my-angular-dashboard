@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ResourcesComponent } from './';
-import { ResourcesService } from './resources.service';
 import { ResourcesResolver } from './resources.resolver';
 
 @NgModule({
@@ -17,10 +16,7 @@ import { ResourcesResolver } from './resources.resolver';
     ])
   ],
   exports: [RouterModule],
-  providers: [
-    ResourcesService, 
-    ResourcesResolver
-  ]
+  providers: [ResourcesResolver]
 })
 export class ResourcesRoutingModule {
 

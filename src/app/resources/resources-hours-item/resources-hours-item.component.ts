@@ -1,18 +1,18 @@
 import { Component, Input } from '@angular/core';
-import { ViewResource } from '../../../resource/view-resource';
-import { ExpandCollapseItemsService } from '../../move-items/expand-collapse-items.service';
+import { ViewResource } from '../resources-model/view-resource';
+import { ExpandCollapseItemsService } from '../move-items/expand-collapse-items.service';
 import { Subject } from 'rxjs/Subject';
 
 const MAX_HOURS = 8;
 
 @Component({
-  selector: 'res-item',
-  templateUrl: './resource-item.component.html',
+  selector: 'res-hours-item',
+  templateUrl: './resources-hours-item.component.html',
   styleUrls: [
-    './resource-item.component.scss'
+    './resources-hours-item.component.scss'
   ]
 })
-export class ResourceItemComponent {
+export class ResourcesHoursItemComponent {
   @Input() resItem: ViewResource;
   @Input() position: number;
 

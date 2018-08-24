@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { MoveDaysFrameService } from './move-items/move-days.service';
-import { TransformResourcesService } from './transform-resources.service';
-import { Resource } from '../resource/resource';
-import { ViewResource, ViewProject } from '../resource/view-resource';
-import { DateRange } from '../resource/date-range';
-import { SelectedProject } from './header-column/resource-item-header/resource-item-header.component';
+import { MoveDaysFrameService } from '../move-items/move-days.service';
+import { TransformResourcesService } from '../transform-resources.service';
+import { Resource } from '../resources-model/resource';
+import { ViewResource, ViewProject } from '../resources-model/view-resource';
+import { DateRange } from '../resources-model/date-range';
+import { SelectedProject } from '../resources-member/resources-member.component';
 import { Subject } from 'rxjs/Subject';
 
 @Component({

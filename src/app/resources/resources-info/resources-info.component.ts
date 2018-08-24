@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'res-info',
-  templateUrl: './resource-info.component.html',
+  templateUrl: './resources-info.component.html',
   styleUrls: [
-    './resource-info.component.scss'
+    './resources-info.component.scss'
   ]
 })
-export class ResourceInfoComponent {
+export class ResourcesInfoComponent {
   @Input() resType: string;
   @Input() resCount: number;
 }

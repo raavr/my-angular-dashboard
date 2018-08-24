@@ -1,19 +1,19 @@
 <div class="res-table-container">
   <div class="res-table">
     <div class="header-column">
-      <res-type-header [resType]="'People'"></res-type-header>
+      <res-type [resType]="'People'"></res-type>
       <res-info [resType]="'People'" [resCount]="viewResources.length"></res-info>
       <div class="items-header-container">
-        <res-item-header *ngFor="let res of viewResources; let idx = index" [resItem]="res" [position]="idx" (assign)="assignProject($event)"></res-item-header>
+        <res-member *ngFor="let res of viewResources; let idx = index" [resItem]="res" [position]="idx" (assign)="assignProject($event)"></res-member>
       </div>
     </div>
     <div class="data-column">
-      <res-month-header [dateRange]="dateRange"></res-month-header>
+      <res-date-range [dateRange]="dateRange"></res-date-range>
       <div class="clipping-frame" moveDays [daysCount]="days.length">
         <div class="moving-frame">
           <res-days [days]="days"></res-days>
           <div class="items-container">
-            <res-item *ngFor="let res of viewResources; let idx = index;" [resItem]="res" [position]="idx"></res-item>
+            <res-hours-item *ngFor="let res of viewResources; let idx = index;" [resItem]="res" [position]="idx"></res-hours-item>
           </div>
         </div>
       </div>

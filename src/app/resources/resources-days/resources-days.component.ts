@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'res-days',
-  templateUrl: './resource-days.component.html',
+  templateUrl: './resources-days.component.html',
   styleUrls: [
-    './resource-days.component.scss'
+    './resources-days.component.scss'
   ]
 })
-export class ResourceDaysComponent {
+export class ResourcesDaysComponent {
   @Input() days: Date[];
 }

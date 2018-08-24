@@ -2,13 +2,13 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
-  selector: 'res-subitem',
-  templateUrl: './resource-subitem.component.html',
+  selector: 'res-hours-subitem',
+  templateUrl: './resources-hours-subitem.component.html',
   styleUrls: [
-    './resource-subitem.component.scss'
+    './resources-hours-subitem.component.scss'
   ]
 })
-export class ResourceSubitemComponent {
+export class ResourcesHoursSubitemComponent {
   @Input() workingHours: number;
   @Input() maxHours: number;
   @Output() assignHours = new EventEmitter<number>();

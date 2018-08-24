@@ -4,6 +4,6 @@
   </div>
 </div>
 <div class="items-row inside-items-row" *ngFor="let viewProject of resItem.projectHoursPerDate; let projIdx = index;" [ngClass]="{ expanded: expanded, collapsed: !expanded }">
-  <res-subitem *ngFor="let projectHours of viewProject.hoursPerDate; let dateIdx = index" [workingHours]="projectHours.workingHours"
-    [maxHours]="countMaxHoursPerSubitem(projIdx, dateIdx)" (assignHours)="updateDaysHours($event, projIdx, dateIdx)"></res-subitem>
+  <res-hours-subitem *ngFor="let projectHours of viewProject.hoursPerDate; let dateIdx = index" [workingHours]="projectHours.workingHours"
+    [maxHours]="countMaxHoursPerSubitem(projIdx, dateIdx)" (assignHours)="updateDaysHours($event, projIdx, dateIdx)"></res-hours-subitem>
 </div>

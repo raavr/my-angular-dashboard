@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Resource, ProjectName } from './resource/resource';
+import { Resource, ProjectName } from './resources-model/resource';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()

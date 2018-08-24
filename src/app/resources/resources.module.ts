@@ -14,17 +14,18 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ResourcesRoutingModule } from './resources-routing.module';
 import { ResourcesComponent } from './';
 import { ResourcesTableComponent } from './resources-table/resources-table.component';
-import { ResourceTypeHeaderComponent } from './resources-table/header-column/resource-type-header/resource-type-header.component';
-import { ResourceInfoComponent } from './resources-table/header-column/resource-info/resource-info.component';
-import { ResourceItemHeaderComponent } from './resources-table/header-column/resource-item-header/resource-item-header.component';
-import { ResourceMonthHeaderComponent } from './resources-table/data-column/resource-month-header/resource-month-header.component';
-import { ResourceDaysComponent } from './resources-table/data-column/resource-days/resource-days.component';
-import { ResourceItemComponent } from './resources-table/data-column/resource-item/resource-item.component';
-import { ResourceSubitemComponent } from './resources-table/data-column/resource-item/resource-subitem/resource-subitem.component';
-import { MoveDaysDirective } from './resources-table/move-items/move-days.directive';
-import { MoveDaysFrameService } from './resources-table/move-items/move-days.service';
-import { TransformResourcesService } from './resources-table/transform-resources.service';
-import { ExpandCollapseItemsService } from './resources-table/move-items/expand-collapse-items.service';
+import { ResourcesTypeComponent } from './resources-type/resources-type.component';
+import { ResourcesInfoComponent } from './resources-info/resources-info.component';
+import { ResourcesMemberComponent } from './resources-member/resources-member.component';
+import { ResourcesDaysComponent } from './resources-days/resources-days.component';
+import { ResourcesHoursItemComponent } from './resources-hours-item/resources-hours-item.component';
+import { ResourcesHoursSubitemComponent } from './resources-hours-subitem/resources-hours-subitem.component';
+import { ResourcesDateRangeComponent } from './resources-date-range/resources-date-range.component';
+import { MoveDaysDirective } from './move-items/move-days.directive';
+import { ResourcesService } from './resources.service';
+import { MoveDaysFrameService } from './move-items/move-days.service';
+import { TransformResourcesService } from './transform-resources.service';
+import { ExpandCollapseItemsService } from './move-items/expand-collapse-items.service';
 
 @NgModule({
   imports: [
@@ -44,15 +45,16 @@ import { ExpandCollapseItemsService } from './resources-table/move-items/expand-
     ResourcesComponent,
     ResourcesTableComponent,
     MoveDaysDirective,
-    ResourceTypeHeaderComponent,
-    ResourceInfoComponent,
-    ResourceItemHeaderComponent,
-    ResourceMonthHeaderComponent,
-    ResourceDaysComponent,
-    ResourceItemComponent,
-    ResourceSubitemComponent
+    ResourcesTypeComponent,
+    ResourcesInfoComponent,
+    ResourcesMemberComponent,
+    ResourcesDateRangeComponent,
+    ResourcesDaysComponent,
+    ResourcesHoursItemComponent,
+    ResourcesHoursSubitemComponent
   ],
   providers: [
+    ResourcesService,
     MoveDaysFrameService,
     TransformResourcesService,
     ExpandCollapseItemsService

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Resource, HoursPerDate, Project } from '../resource/resource';
-import { DateRange } from '../resource/date-range';
+import { Resource, HoursPerDate, Project } from './resources-model/resource';
+import { DateRange } from './resources-model/date-range';
 import { Observable } from 'rxjs/Observable';
 import {
   ViewResource,
   ViewProject,
   HoursPerDateMap,
   ProjectWorkingHours
-} from '../resource/view-resource';
+} from './resources-model/view-resource';
 
 const ZERO_HOUR = 0;
 const DAYS_MS = 86400000; //1 day (86400000 ms)

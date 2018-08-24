@@ -4,6 +4,10 @@ Working example can be found here: http://raavr.github.io/my-angular-dashboard/
 
 Inspired by: https://cdn.dribbble.com/users/34556/screenshots/3702200/attachments/829321/dash-resourcing.jpg
 
+## Demo
+
+![Demo 1][1]
+
 This app is built with:
 * [Angular] (http://www.angular.io/)
 * [Angular material] (https://material.angular.io/)
@@ -14,3 +18,5 @@ This app is built with:
 * [npm] (https://www.npmjs.com/)
 
 Environment configuration by [@AngularClass](https://github.com/AngularClass/angular2-webpack-starter)
+
+[1]: ./demo/demo.gif
